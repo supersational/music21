@@ -49,7 +49,30 @@ import typing as t
 import unittest
 import zipfile
 
-import requests
+import asyncio
+
+# try:
+#     import pyodide_http
+#     _running_in_pyodide = True
+# except ImportError:
+#     import requests
+#     _running_in_pyodide = False
+
+# def fetch_url_sync(url: str) -> bytes:
+#     if _running_in_pyodide:
+#         import asyncio
+#         from pyodide_http import pyfetch
+
+#         async def fetch():
+#             response = await pyfetch(url, method="GET", redirect="follow")
+#             return await response.bytes()
+
+#         return asyncio.run(fetch())
+#     else:
+#         # Normal desktop Python
+#         response = requests.get(url, allow_redirects=True, timeout=20)
+#         return response.content
+
 
 from music21.converter import subConverters
 from music21.converter import museScore
@@ -774,11 +797,12 @@ class Converter:
 
         if forceSource is True or not fp.exists():
             environLocal.printDebug([f'downloading to: {fp}'])
-            r = requests.get(url, allow_redirects=True, timeout=20)
-            if r.status_code != 200:
-                raise ConverterException(
-                    f'Could not download {url}, error: {r.status_code} {responses[r.status_code]}')
-            fp.write_bytes(r.content)
+            # r = requests.get(url, allow_redirects=True, timeout=20)
+            # fileBytes = fetch_url_sync(url)
+            # if fileBytes is None:
+            #     raise ConverterException(f'Could not download {url}')
+            # fp.write_bytes(fileBytes)
+            raise NotImplementedError("No reuqests in pyodide")
         else:
             environLocal.printDebug([f'using already downloaded file: {fp}'])
 

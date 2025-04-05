@@ -28,7 +28,7 @@ from xml.etree.ElementTree import (
 )
 
 # external dependencies
-import webcolors  # type: ignore  # no typing in module
+# import webcolors  # type: ignore  # no typing in module
 
 # Imported in music21.converter. Thus, cannot import it here
 from music21 import articulations
@@ -136,7 +136,7 @@ def normalizeColor(color: str) -> str:
     if not color:
         return ''
     if '#' not in color:
-        return webcolors.name_to_hex(color).upper()
+        return NotImplementedError("No webcolors in pyodide")
     else:
         return color.upper()
 

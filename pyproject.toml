@@ -42,15 +42,18 @@ classifiers = [
 ]
 
 # when hatch-requirements-txt is stable, replace with that
+# dependencies = [
+#     "chardet",
+#     "joblib",
+#     "jsonpickle",
+#     "matplotlib",
+#     "more_itertools",
+#     "numpy<2.0.0",
+#     "requests",
+#     "webcolors>=1.5",
+# ]
 dependencies = [
-    "chardet",
-    "joblib",
-    "jsonpickle",
-    "matplotlib",
     "more_itertools",
-    "numpy<2.0.0",
-    "requests",
-    "webcolors>=1.5",
 ]
 
 [[project.authors]]
