@@ -52,9 +52,7 @@ classifiers = [
 #     "requests",
 #     "webcolors>=1.5",
 # ]
-dependencies = [
-    "more_itertools",
-]
+dependencies = []
 
 [[project.authors]]
 name = "Michael Scott Asato Cuthbert"
