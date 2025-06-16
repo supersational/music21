@@ -1,3 +1,19 @@
+# Music21 + Pyodide = web
+Music21 running on the web using pyodide.
+
+Note: this is music21 without the dependencies that make it slow to run in pyodide. 
+- removed matplotlib, numpy, requests
+- inlined webcolors, more_itertools
+
+To run:
+```
+python -m build --wheel
+python -m http.server
+```
+
+Then open http://localhost:8000/renderScore.html
+
+
 # music21 #
 
 `music21` -- A Toolkit for Computer-Aided Musical Analysis and 
