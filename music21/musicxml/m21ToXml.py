@@ -28,7 +28,6 @@ from xml.etree.ElementTree import (
 )
 
 # external dependencies
-# import webcolors  # type: ignore  # no typing in module
 
 # Imported in music21.converter. Thus, cannot import it here
 from music21 import articulations
@@ -61,6 +60,8 @@ from music21 import style
 from music21 import tempo
 from music21 import text
 from music21 import tie
+
+from music21.imports import webcolors
 
 from music21.musicxml import helpers
 from music21.musicxml.partStaffExporter import PartStaffExporterMixin
@@ -136,7 +137,7 @@ def normalizeColor(color: str) -> str:
     if not color:
         return ''
     if '#' not in color:
-        return NotImplementedError("No webcolors in pyodide")
+        return webcolors.name_to_hex(color).upper()
     else:
         return color.upper()
 

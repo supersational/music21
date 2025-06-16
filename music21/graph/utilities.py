@@ -17,7 +17,6 @@ from __future__ import annotations
 from collections import namedtuple
 import typing as t
 import unittest
-# import webcolors  # type: ignore  # no typing in module
 
 # TODO: Move _missingImport to environment or common so this is unnecessary.
 from music21.base import _missingImport
@@ -25,6 +24,8 @@ from music21 import common
 from music21 import environment
 from music21 import exceptions21
 from music21 import pitch
+
+from music21.imports import webcolors
 
 environLocal = environment.Environment('graph.utilities')
 
@@ -148,8 +149,7 @@ def getColor(color):
         if color[0] == '#':  # assume is hex
             # this will expand three-value codes, and check for badly
             # formed codes
-            # return webcolors.normalize_hex(color)
-            raise NotImplementedError("No webcolors in pyodide")
+            return webcolors.normalize_hex(color)
         color = color.lower().replace(' ', '')
         # check for one character matplotlib colors
         if len(color) == 1:
@@ -166,8 +166,7 @@ def getColor(color):
             except KeyError:
                 raise GraphException(f'invalid color abbreviation: {color}')
         try:
-            # return webcolors.name_to_hex(color)
-            raise NotImplementedError("No webcolors in pyodide")
+            return webcolors.name_to_hex(color)
         except ValueError:  # no color match
             raise GraphException(f'invalid color name: {color}')
 
