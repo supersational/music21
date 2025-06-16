@@ -22,7 +22,7 @@ import random
 import typing as t
 import unittest
 
-import more_itertools
+from music21.common.misc import windowed
 
 from music21 import common
 from music21 import environment
@@ -609,7 +609,7 @@ class TimespanTree(trees.OffsetTree):
         else:
             ending = []
 
-        for verticalities in more_itertools.windowed(
+        for verticalities in windowed(
             itertools.chain(self.iterateVerticalities(reverse=reverse), ending),
             n,
             sentinelVerticality

@@ -18,7 +18,8 @@ import pathlib
 import re
 import shutil
 
-from more_itertools import windowed
+from music21.common.misc import windowed
+
 
 from music21 import common
 from music21 import exceptions21

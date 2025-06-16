@@ -22,7 +22,7 @@ import difflib
 import math
 import unittest
 
-from more_itertools import windowed
+from music21.common.misc import windowed
 
 from music21 import base as m21Base
 from music21 import exceptions21
