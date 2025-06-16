@@ -117,10 +117,11 @@ for modName in ('matplotlib', 'numpy'):
 del find_spec
 del modName
 
-if _missingImport:  # pragma: no cover
-    if environLocal['warnings'] in (1, '1', True):
-        environLocal.warn(common.getMissingImportStr(_missingImport),
-                          header='music21:')
+# Pyodide change: removed missing import warnings
+# if _missingImport:  # pragma: no cover
+#     if environLocal['warnings'] in (1, '1', True):
+#         environLocal.warn(common.getMissingImportStr(_missingImport),
+#                           header='music21:')
 
 
 class Music21ObjectException(exceptions21.Music21Exception):
